@@ -5,7 +5,6 @@ end
 
 get '/:username' do
   @user = TwitterUser.find_or_create_by(username: params[:username])
-  byebug
 
   if @user.tweets.empty?
     @user.fetch_tweets!
@@ -18,5 +17,6 @@ get '/:username' do
 end
 
 post '/username' do
+
   redirect to "#{params[:user]}"
 end
