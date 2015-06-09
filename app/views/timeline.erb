@@ -1,0 +1,7 @@
+<div class="container">
+  <h1><%= @user.username %>'s timeline</h1>
+  <% byebug %>
+  <% @user_timeline.first(10).each do |tweet| %>
+  <p><%= tweet.text %></p>
+  <% end %>
+</div>
