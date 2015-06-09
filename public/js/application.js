@@ -6,7 +6,7 @@ $(document).ready(function() {
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
   $("#crawl-tweets").click(function(event){
     event.preventDefault();
-    $('#loading_img').show()
+    $('#loading_img').show();
     $.ajax({
       type: "POST",
       url: "/username",

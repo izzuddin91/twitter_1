@@ -5,7 +5,6 @@ end
 
 get '/:username' do
   @user = TwitterUser.find_or_create_by(username: params[:username])
-
   if @user.tweets.empty?
     @user.fetch_tweets!
   elsif @user.tweets_stale?

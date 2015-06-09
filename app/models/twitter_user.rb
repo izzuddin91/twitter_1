@@ -11,8 +11,12 @@ class TwitterUser < ActiveRecord::Base
   end
 
   def tweets_stale?
-    if ($client.user_timeline(self.username).first.created_at > self.tweets.first.created_at)
-      return true
+    if self.tweets.first.stale?
+      if ($client.user_timeline(self.username).first.created_at > self.tweets.first.created_at)
+        return true
+      else
+        return false
+      end
     else
       return false
     end
